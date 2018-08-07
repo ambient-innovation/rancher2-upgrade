@@ -8,7 +8,7 @@
 # The only reason for this is to have an environment variable that changes, which will force kubernetes to
 # re-pull the image.
 
-echo "Upgading deployment $2 in namespace $1 ..."
+echo "Upgrading deployment $2 in namespace $1 ..."
 
 rancher kubectl \
     --namespace=$1 \
