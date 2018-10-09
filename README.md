@@ -48,5 +48,6 @@ To make changes, proceed as follows:
 
 1. Make your changes to the code
 2. $ docker login (Credentials in 1 Password)
-3. $ docker build -t ambientinnovation/rancher2-upgrade:v1.0.0 .
-4. $ docker push ambientinnovation/rancher2-upgrade:v1.0.0
+3. $ docker build -t ambientinnovation/rancher2-upgrade:v1.0.2 -t ambientinnovation/rancher2-upgrade:latest .
+4. $ docker push ambientinnovation/rancher2-upgrade:v1.0.2
+4. $ docker push ambientinnovation/rancher2-upgrade:latest
