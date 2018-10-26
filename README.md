@@ -42,7 +42,8 @@ deploy to test:
 ## Development
 
 This project is hosted at https://github.com/ambient-innovation/rancher2-upgrade
-The docker image is hosted on dockerhub.
+
+The docker image is hosted on dockerhub at https://hub.docker.com/r/ambientinnovation/rancher2-upgrade.
 
 To make changes, proceed as follows:
 
