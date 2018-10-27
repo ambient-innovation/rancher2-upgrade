@@ -14,4 +14,4 @@ rancher kubectl \
     --namespace=$1 \
     patch deployment $2 \
     --type=strategic \
-    -p '{"spec":{"template":{"spec":{"containers":[{"name":"'$2'","env":[{"name":"FORCE_RESTART_AT","value":"'$CI_PIPELINE_ID'"}]}]}}}}'
+    -p '{"spec":{"template":{"spec":{"containers":[{"name":"'$2'","env":[{"name":"FORCE_RESTART_AT","value":"'$(date --utc -Iseconds)'"}]}]}}}}'
