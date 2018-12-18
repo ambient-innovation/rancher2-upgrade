@@ -18,5 +18,6 @@ RUN set -x && \
 
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY upgrade.sh /usr/local/bin/
+COPY patch.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
