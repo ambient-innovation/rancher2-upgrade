@@ -1,15 +1,8 @@
 # ai-rancher2-upgrade
 
-Allows you to upgrade existing deployments in Rancher 2 in your CI process.
+Allows you to upgrade existing workloads in Rancher 2 in your CI process.
 This image will use the Rancher CLI to change an environment variable, which 
 will cause kubernetes to re-pull the docker image. 
-ai-rancher2-upgrade would not be necessary if the Rancher 2 CLI would allow
-specifying the project ID. In this case it would be a 2-liner to upgrade a 
-service. But since the Rancher 2 CLI currently has no non-interavtive mode, it
-will ask the user to select a project if there is more than just the default project. This
-image picks up the work-around suggested in https://github.com/rancher/rancher/issues/14448.
-It writes a cli2.json file based on environment variables which contains the 
-authentication data and project it.
 
 ## Usage
 
@@ -22,7 +15,7 @@ authentication data and project it.
 2. Run the docker-entrypoint.sh (gitlab will not do this automatically). This will create the
 cli2.json
 
-3. Execute "upgrade.de [namespace] [deployment]" script for each deployment, you want to upgrade.
+3. Execute "patch.de [namespace] [workload]" script for each deployment, you want to upgrade. You must specify the workload including its type like "deployment/name" or "cronjob/name".
 
 Sample gitlab-ci.yml:
 
@@ -35,8 +28,8 @@ deploy to test:
   only:
     - develop
   script:
-    - /usr/local/bin/docker-entrypoint.sh # Creates the cli2.json with authentication data
-    - /usr/local/bin/upgrade.sh default website # Triggers the actual upgrade
+    - /usr/local/bin/docker-entrypoint.sh # Authenticates with rancher API
+    - /usr/local/bin/patch.sh default deployment/website # Triggers the actual upgrade
 ```
 
 ## Development

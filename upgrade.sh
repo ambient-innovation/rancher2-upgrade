@@ -1,13 +1,10 @@
 #!/bin/sh
 
-# This is the file that actually executes the rancher CLI command. It uses the rancher CLI to run kubectl
-# and patch the deployment.
-# Execute it like "upgrade.sh [namespace] [deployment]
-# Example: upgrade.sh default my-website
-# It will patch the deployment with an enviroment variable FORCE_RESTART_AT and assign it the gitlab pipeline ID.
-# The only reason for this is to have an environment variable that changes, which will force kubernetes to
-# re-pull the image.
+# This is deprecated. See patch.sh instead.
 
+echo -e "\033[33mWARNING: This script is deprecated. Use patch.sh instead and specify the workload type.\033[0m"
+echo -e "\033[33mE.g. 'upgrade.sh default web' becomes 'patch.sh default deployment/web'.\033[0m"
+echo -e "\033[33mSpecifying the workload type allows this script to also upgrade cronjobs etc.\033[0m"
 echo "Upgrading deployment $2 in namespace $1 ..."
 
 rancher kubectl \
