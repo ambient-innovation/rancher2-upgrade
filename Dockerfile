@@ -1,8 +1,8 @@
 # This is simply the rancher CLI plus kubectl
 
 # Adapted docker setup from https://hub.docker.com/r/diemscott/rancher-cli-k8s/~/dockerfile/
-FROM lachlanevenson/k8s-kubectl:v1.14.0 AS k8scli
-FROM rancher/cli:v0.6.13
+FROM lachlanevenson/k8s-kubectl:v1.11.6 AS k8scli
+FROM rancher/cli:v2.0.4
 COPY --from=k8scli /usr/local/bin/kubectl /usr/local/bin
 
 # We add envsubst which allows to replace environment variables, which is very handy when replacing congig
