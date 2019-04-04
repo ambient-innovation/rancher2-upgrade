@@ -12,6 +12,6 @@ echo "Upgrading deployment $2 in namespace $1 ..."
 
 rancher kubectl \
     --namespace=$1 \
-    patch deployment.apps $2 \
+    patch 'deployment.apps' $2 \
     --type=strategic \
     -p '{"spec":{"template":{"spec":{"containers":[{"name":"'$2'","env":[{"name":"FORCE_RESTART_AT","value":"'$(date --utc -Iseconds)'"}]}]}}}}'
