@@ -1,7 +1,7 @@
 # This is simply the rancher CLI plus kubectl
 
 # Adapted docker setup from https://hub.docker.com/r/diemscott/rancher-cli-k8s/~/dockerfile/
-FROM lachlanevenson/k8s-kubectl:v1.11.6 AS k8scli
+FROM lachlanevenson/k8s-kubectl:v1.21.12 AS k8scli
 FROM rancher/cli2:v2.4.5
 COPY --from=k8scli /usr/local/bin/kubectl /usr/local/bin
 
